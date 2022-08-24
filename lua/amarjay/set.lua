@@ -29,9 +29,11 @@ vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.path:append { '**' } -- In finding files
 vim.opt.cmdheight = 1 -- Give more space for displaying messages. 
+vim.opt.inccommand = 'split'
 
 -- Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 -- delays and poor user experience.
 vim.opt.updatetime = 50
 
 -- TODO: Set Leader
+
