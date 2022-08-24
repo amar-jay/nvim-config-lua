@@ -4,10 +4,12 @@
 
 ## TODO
 
-- [ ] Basic Setup
-- [ ] Treesitter
+- [x] Basic Setup
+- [x] Treesitter
 - [ ] Lsp
 - [ ] Status bar
 - [ ] JS/TS config
 - [ ] Golang Config
 - [ ] Rust Config
+
+
