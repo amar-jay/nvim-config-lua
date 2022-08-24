@@ -19,7 +19,7 @@ Color.new('voilet', '#6B0070')
 Color.new('white', '#cccccc')
 Color.new('grey', '#333333')
 Group.new('CursorLine', colors.none, colors.base03, styles.NONE, colors.base1)
-Group.new('CursorLineNr', colors.white, colors.voilet, styles.NONE, colors.base1)
+Group.new('CursorLineNr', colors.yellow, colors.voilet, styles.NONE, colors.base1)
 Group.new('Visual', colors.white, colors.grey, styles.none)
 
 local cError = groups.Error.fg
