@@ -1,46 +1,37 @@
 -- basic vim configs --
 
-vim.opt.guicursor = ""
+vim.scriptencoding = 'utf-8'
+vim.opt.encoding = 'utf-8'
+vim.opt.fileencoding = 'utf-8'
 
 vim.opt.nu = true
-vim.opt.relativenumber = true
+vim.opt.relativenumber = true -- show line number relative to cursor
 
-vim.opt.errorbells = false
-
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
-
+vim.opt.title = true
+vim.opt.autoindent = true
 vim.opt.smartindent = true
-
+vim.opt.errorbells = false
+vim.opt.showcmd = true
+vim.opt.backup = false -- No backup of files
+vim.opt.cmdheight = 1
+vim.opt.laststatus = 2
+vim.opt.scrolloff = 8
+vim.opt.shell = 'neovim'
+vim.opt.shiftwidth = 2
+vim.opt.expandtab = true
+vim.opt.softtabstop = 2
+vim.opt.smarttab = true
+vim.opt.shiftwidth = 2
+vim.opt.ignorecase = true -- case insensitive unless /C
 vim.opt.wrap = false
-
+-- vim.opt.backspace = { 'start', 'eol', 'indent'}
 vim.opt.swapfile = false
 vim.opt.backup = false
---vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
-vim.opt.undofile = true
-
-vim.opt.hlsearch = false
-vim.opt.incsearch = true
-
-vim.opt.termguicolors = true
-
-vim.opt.scrolloff = 8
-vim.opt.signcolumn = "yes"
-vim.opt.isfname:append("@-@")
-
--- Give more space for displaying messages.
-vim.opt.cmdheight = 1
+vim.opt.path:append { '**' } -- In finding files
+vim.opt.cmdheight = 1 -- Give more space for displaying messages. 
 
 -- Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 -- delays and poor user experience.
 vim.opt.updatetime = 50
 
--- Don't pass messages to |ins-completion-menu|.
-vim.opt.shortmess:append("c")
-
-vim.opt.colorcolumn = "80"
-
-vim.g.mapleader = " "
-
+-- TODO: Set Leader
