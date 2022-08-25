@@ -1,6 +1,8 @@
 # Lua Neovim Config
 
-- Neovim Config in lua
+- My Neovim Config in lua
+
+![screenshot](./screenshot.jpg)
 
 ## TODO
 
@@ -14,5 +16,4 @@
     - [ ] JSX/React
     - [ ] Svelte
 - [ ] Status bar
-
 
