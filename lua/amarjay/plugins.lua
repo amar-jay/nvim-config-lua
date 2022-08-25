@@ -1,4 +1,5 @@
 local status, packer = pcall(require, "packer")
+
 if (not status) then
   print("Packer is not installed")
   return
@@ -23,6 +24,7 @@ packer.startup(function(use)
   use 'MunifTanjim/prettier.nvim' -- Prettier plugin for Neovim's built-in LSP client
   use 'williamboman/mason.nvim'
   use 'williamboman/mason-lspconfig.nvim'
+  use 'simrat39/rust-tools.nvim' -- Rust tools install
 
   use 'glepnir/lspsaga.nvim' -- LSP UIs
   use 'L3MON4D3/LuaSnip'
@@ -36,11 +38,12 @@ packer.startup(function(use)
   use 'windwp/nvim-autopairs'
   use 'windwp/nvim-ts-autotag'
   use 'norcalli/nvim-colorizer.lua'
-  use 'folke/zen-mode.nvim'
-  use({
-    "iamcco/markdown-preview.nvim",
-    run = function() vim.fn["mkdp#util#install"]() end,
-  })
+--  use 'folke/zen-mode.nvim'
+  use 'folke/lsp-colors.nvim'
+--  use({
+--    "iamcco/markdown-preview.nvim",
+--    run = function() vim.fn["mkdp#util#install"]() end,
+--  })
   use 'akinsho/nvim-bufferline.lua'
   -- use 'github/copilot.vim'
 

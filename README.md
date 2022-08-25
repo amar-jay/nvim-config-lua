@@ -7,9 +7,12 @@
 - [x] Basic Setup
 - [x] Treesitter
 - [ ] Lsp
+    - [x] python
+    - [x] golang
+    - [x] rust
+    - [ ] Js/Ts
+    - [ ] JSX/React
+    - [ ] Svelte
 - [ ] Status bar
-- [ ] JS/TS config
-- [ ] Golang Config
-- [ ] Rust Config
 
 
