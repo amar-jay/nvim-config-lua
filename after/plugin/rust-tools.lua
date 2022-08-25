@@ -4,7 +4,6 @@ if (not status) then
   print("Rust-Tools import error!!")
   return
 end
---[[
 local opts = {
   tools = {
         runnables = {
@@ -37,5 +36,4 @@ local opts = {
 
 } 
 tools.setup(opts)
-]]--
 

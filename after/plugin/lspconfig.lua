@@ -24,7 +24,7 @@ local function config(_config)
 		end,
 	}, _config or {})
 end
-lsp.pyright.setup {config()}
+lsp.pyright.setup(config())
 
 lsp.gopls.setup(config({
 	cmd = { "gopls", "serve" },
@@ -37,6 +37,8 @@ lsp.gopls.setup(config({
 		},
 	},
 }))
+
+--[[
 -- changed config to rust-tools
 require("lspconfig").rust_analyzer.setup(config({
 	cmd = { "rustup", "run", "nightly", "rust-analyzer" },
@@ -48,4 +50,6 @@ require("lspconfig").rust_analyzer.setup(config({
         },
     }
 }))
+
+]]--
 
