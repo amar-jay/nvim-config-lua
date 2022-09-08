@@ -8,12 +8,12 @@
 
 - [x] Basic Setup
 - [x] Treesitter
-- [ ] Lsp
+- [x] Lsp
     - [x] python
     - [x] golang
     - [x] rust
-    - [ ] Js/Ts
-    - [ ] JSX/React
-    - [ ] Svelte
-- [ ] Status bar
+    - [x] Js/Ts
+    - [x] JSX/React
+    - [x] Svelte
+- [x] Telescope 
 
