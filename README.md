@@ -16,4 +16,5 @@
     - [x] JSX/React
     - [x] Svelte
 - [x] Telescope 
+- [ ] Prettier  
 
