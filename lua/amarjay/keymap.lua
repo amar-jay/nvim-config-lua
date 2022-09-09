@@ -20,6 +20,7 @@ M.xnoremap = bind("x")
 M.inoremap = bind("i")
 
 key.set('n', 'te', ':tabedit ')
+key.set('n', 'tn', ':tabnew<Return> ')
 key.set('n', '<S-Tab>', ':tabprev<Return>')
 key.set('n', '<Tab>', ':tabnext<Return>')
 
@@ -49,9 +50,8 @@ end)
 vim.keymap.set('n', 'ne', function()
   builtin.diagnostics()
 end)
-  --[[
   -- TODO: Setup filebrowser 
-vim.keymap.set("n", "sf", function()
+vim.keymap.set("n", "nb", function()
   telescope.extensions.file_browser.file_browser({
     path = "%:p:h",
     cwd = telescope_buffer_dir(),
@@ -63,7 +63,6 @@ vim.keymap.set("n", "sf", function()
     layout_config = { height = 40 }
   })
 end)
-    ]]--
 end
 
 treesitter()

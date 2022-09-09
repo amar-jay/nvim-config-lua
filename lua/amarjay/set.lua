@@ -43,3 +43,4 @@ vim.opt.updatetime = 50
 
 -- TODO: Set Leader
 
+vim.g.mapleader = " "
