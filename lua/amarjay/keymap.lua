@@ -25,7 +25,8 @@ key.set('n', 'te', ':tabedit ')
 key.set('n', 'te<Return>', ':tabnew<Return> ')
 key.set('n', '<S-Tab>', ':tabprev<Return>')
 key.set('n', '<Tab>', ':tabnext<Return>')
-
+key.set('n', 'vs', ':vsplit' )
+key.set('n', 'ss', ':split' )
 -- Keymaps for Treesitter
 local function treesitter()
 
@@ -60,7 +61,7 @@ local function telescope_buffer_dir()
 end
 
 
-vim.keymap.set("n", "nb", function()
+vim.keymap.set("n", "<leader>b", function()
   telescope.extensions.file_browser.file_browser({
     path = "%:p:h",
     cwd = telescope_buffer_dir(),
@@ -84,7 +85,7 @@ local function config(_config)
 			nnoremap("gd", function() vim.lsp.buf.definition() end)
 			nnoremap("K", function() vim.lsp.buf.hover() end)
 			nnoremap("qws", function() vim.lsp.buf.workspace_symbol() end)
-			nnoremap("<leader><leader>", function() vim.diagnostic.open_float() end)
+			nnoremap("<leader>f", function() vim.diagnostic.open_float() end)
 			nnoremap("[d", function() vim.diagnostic.goto_next() end)
 			nnoremap("]d", function() vim.diagnostic.goto_prev() end)
 			nnoremap("qca", function() vim.lsp.buf.code_action() end)

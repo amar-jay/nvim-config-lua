@@ -1,13 +1,7 @@
 local lspstatus, lsp = pcall(require, "lspconfig")
 local ruststatus, rusttools = pcall(require, "rust-tools")
-local masonstatus, masonconfig = pcall(require, "mason-lspconfig")
 local Keymaps = require("amarjay.keymap")
 local config = Keymaps.config
-
-if (not masonstatus) then 
-  print("Mason Lspconfig import error!!")
-  return end
-
 
 if (not lspstatus) then
   print("Lspconfig import error!!")
@@ -33,6 +27,7 @@ lsp.gopls.setup(config({
 }))
 
 lsp.tsserver.setup(config())
+lsp.tailwindcss.setup({})
 
 lsp.svelte.setup(config())
 
@@ -96,18 +91,13 @@ local opts = {
 	show_guides = true,
 }
 
---[[
 -- Ought to fix import error
+--[[
 local status, so = pcall("symbols-outline")
 
 if (not status) then
   print("Symbols-outlined import error!!")
   return end
-
 so.setup(opts)
 ]]--
 
--- Mason LSP Config
-masonconfig.setup {
-  ensure_installed = { "sumneko_lua", "tailwindcss" },
-}
