@@ -54,7 +54,12 @@ vim.keymap.set('n', '<leader>h', function()
   builtin.diagnostics()
 end)
 
-  -- TODO: Setup filebrowser 
+  
+local function telescope_buffer_dir()
+  return vim.fn.expand('%:p:h')
+end
+
+
 vim.keymap.set("n", "nb", function()
   telescope.extensions.file_browser.file_browser({
     path = "%:p:h",
