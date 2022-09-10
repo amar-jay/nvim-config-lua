@@ -79,9 +79,9 @@ end
 treesitter()
 
 -- keymaps for treesitter context 
-M.ts_context = function(setup) 
-  M.nnoremap("<leader>cf", function() setup(true) end)
-  M.nnoremap("<leader>cp", function() setup(false) end)
+M.ts_context = function(_setup) 
+ M.nnoremap("<leader>cf", function() _setup(true) end)
+ M.nnoremap("<leader>cp", function() _setup(false) end)
   end
 
 
@@ -90,19 +90,18 @@ local function config(_config)
 	return vim.tbl_deep_extend("force", {
 		capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities()),
 		on_attach = function()
-			nnoremap("gd", function() vim.lsp.buf.definition() end)
-			nnoremap("K", function() vim.lsp.buf.hover() end)
-			nnoremap("qws", function() vim.lsp.buf.workspace_symbol() end)
-			nnoremap("<leader>d", function() vim.lsp.buf.type_definition() end)
-			nnoremap("<leader>f", function() vim.diagnostic.open_float() end)
-			nnoremap("[d", function() vim.diagnostic.goto_next() end)
-			nnoremap("]d", function() vim.diagnostic.goto_prev() end)
-			nnoremap("qca", function() vim.lsp.buf.code_action() end)
-			nnoremap("<leader>rr", function() vim.lsp.buf.references() end)
-			nnoremap("<leader>p", function() vim.lsp.buf.formatting() end)
-                        nnoremap("<leader>rn", function() vim.lsp.buf.rename() end)
-      --[[
-                        nnoremap("qco", function() vim.lsp.buf.code_action({
+		M.nnoremap("gd", function() vim.lsp.buf.definition() end)
+		M.nnoremap("K", function() vim.lsp.buf.hover() end)
+		M.nnoremap("<leader>ws", function() vim.lsp.buf.workspace_symbol() end)
+		M.nnoremap("<leader>d", function() vim.lsp.buf.type_definition() end)
+		M.nnoremap("<leader>f", function() vim.diagnostic.open_float() end)
+		M.nnoremap("[d", function() vim.diagnostic.goto_next() end)
+		M.nnoremap("]d", function() vim.diagnostic.goto_prev() end)
+		M.nnoremap("<leader>ca", function() vim.lsp.buf.code_action() end)
+		M.nnoremap("<leader>rr", function() vim.lsp.buf.references() end)
+		M.nnoremap("<leader>p", function() vim.lsp.buf.formatting() end)
+                       M.nnoremap("<leader>rn", function() vim.lsp.buf.rename() end)
+                       M.nnoremap("<leader>co", function() vim.lsp.buf.code_action({
                               filter = function(code_action)
                                   if not code_action or not code_action.data then
                                       return false
@@ -113,8 +112,7 @@ local function config(_config)
                               end,
                               apply = true
                           }) end)
-      ]]--
-			inoremap("<C-h>", function() vim.lsp.buf.signature_help() end)
+			M.inoremap("<C-h>", function() vim.lsp.buf.signature_help() end)
 		end,
 	}, _config or {})
 end
