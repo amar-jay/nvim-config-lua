@@ -43,3 +43,5 @@ vim.opt.updatetime = 50
 
 
 vim.g.mapleader = " " -- Set Leader
+
+vim.opt.clipboard:prepend { 'unnamed', 'unnamedplus' }
