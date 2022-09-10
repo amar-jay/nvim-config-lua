@@ -41,6 +41,5 @@ vim.opt.background = 'dark'
 -- delays and poor user experience.
 vim.opt.updatetime = 50
 
--- TODO: Set Leader
 
-vim.g.mapleader = " "
+vim.g.mapleader = " " -- Set Leader

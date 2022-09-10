@@ -1,39 +1,21 @@
-local status, lsp = pcall(require, "lspconfig")
-local Remap = require("amarjay.keymap")
-local nnoremap = Remap.nnoremap
-local inoremap = Remap.inoremap
+local lspstatus, lsp = pcall(require, "lspconfig")
+local ruststatus, rusttools = pcall(require, "rust-tools")
+local masonstatus, masonconfig = pcall(require, "mason-lspconfig")
+local Keymaps = require("amarjay.keymap")
+local config = Keymaps.config
 
-if (not status) then
+if (not masonstatus) then 
+  print("Mason Lspconfig import error!!")
+  return end
+
+
+if (not lspstatus) then
   print("Lspconfig import error!!")
   return end
 
-local function config(_config)
-	return vim.tbl_deep_extend("force", {
-		capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities()),
-		on_attach = function()
-			nnoremap("gd", function() vim.lsp.buf.definition() end)
-			nnoremap("K", Function() vim.lsp.buf.hover() end)
-			nnoremap("<leader>vws", function() vim.lsp.buf.workspace_symbol() end)
-			nnoremap("<leader>vd", function() vim.diagnostic.open_float() end)
-			nnoremap("[d", function() vim.diagnostic.goto_next() end)
-			nnoremap("]d", function() vim.diagnostic.goto_prev() end)
-			nnoremap("<leader>vca", function() vim.lsp.buf.code_action() end)
-			nnoremap("<leader>vrr", function() vim.lsp.buf.references() end)
-                        nnoremap("<leader>vrn", function() vim.lsp.buf.rename() end)
-                        nnoremap("<leader>vco", function() vim.lsp.buf.code_action({
-                              filter = function(code_action)
-                                  if not code_action or not code_action.data then
-                                      return false
-                                  end
-
-                                  local data = code_action.data.id
-                                  return string.sub(data, #data - 1, #data) == ":0"
-                              end,
-                              apply = true
-                          }) end)
-			inoremap("<C-h>", function() vim.lsp.buf.signature_help() end)
-		end,
-	}, _config or {})
+if (not ruststatus) then
+  print("Rust-Tools import error!!")
+  return
 end
 
 lsp.pyright.setup(config())
@@ -69,12 +51,6 @@ require("lspconfig").rust_analyzer.setup(config({
     }
 }))
   --]]
-local s, rusttools = pcall(require, "rust-tools")
-
-if (not s) then
-  print("Rust-Tools import error!!")
-  return
-end
 local opts = {
   tools = {
         runnables = {
@@ -131,13 +107,7 @@ if (not status) then
 so.setup(opts)
 ]]--
 
-
 -- Mason LSP Config
-local status, masonconfig = pcall(require, "mason-lspconfig")
-if (not status) then 
-  print("Mason LspConfig Error")
-  return end
-
 masonconfig.setup {
   ensure_installed = { "sumneko_lua", "tailwindcss" },
 }
