@@ -27,6 +27,7 @@ key.set('n', '<S-Tab>', ':tabprev<Return>')
 key.set('n', '<Tab>', ':tabnext<Return>')
 key.set('n', 'vs', ':vsplit' )
 key.set('n', 'ss', ':split' )
+
 -- Keymaps for Treesitter
 local function treesitter()
 
@@ -77,6 +78,13 @@ end
 
 treesitter()
 
+-- keymaps for treesitter context 
+M.ts_context = function(setup) 
+  M.nnoremap("<leader>cf", function() setup(true) end)
+  M.nnoremap("<leader>cp", function() setup(false) end)
+  end
+
+
 -- keymaps for lsp
 local function config(_config)
 	return vim.tbl_deep_extend("force", {
@@ -112,4 +120,5 @@ local function config(_config)
 end
 
 M.config = config
+M.ts_context = M.ts_context
 return M
