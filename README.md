@@ -24,4 +24,4 @@ For effieciency and faster build time. No package manager is used.
     - [x] JSX/React
     - [x] Svelte
 - [x] Telescope 
-
+- [ ] Write script for setup
