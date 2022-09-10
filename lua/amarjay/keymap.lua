@@ -85,12 +85,15 @@ local function config(_config)
 			nnoremap("gd", function() vim.lsp.buf.definition() end)
 			nnoremap("K", function() vim.lsp.buf.hover() end)
 			nnoremap("qws", function() vim.lsp.buf.workspace_symbol() end)
+			nnoremap("<leader>d", function() vim.lsp.buf.type_definition() end)
 			nnoremap("<leader>f", function() vim.diagnostic.open_float() end)
 			nnoremap("[d", function() vim.diagnostic.goto_next() end)
 			nnoremap("]d", function() vim.diagnostic.goto_prev() end)
 			nnoremap("qca", function() vim.lsp.buf.code_action() end)
 			nnoremap("<leader>rr", function() vim.lsp.buf.references() end)
-                        nnoremap("qrn", function() vim.lsp.buf.rename() end)
+			nnoremap("<leader>p", function() vim.lsp.buf.formatting() end)
+                        nnoremap("<leader>rn", function() vim.lsp.buf.rename() end)
+      --[[
                         nnoremap("qco", function() vim.lsp.buf.code_action({
                               filter = function(code_action)
                                   if not code_action or not code_action.data then
@@ -102,6 +105,7 @@ local function config(_config)
                               end,
                               apply = true
                           }) end)
+      ]]--
 			inoremap("<C-h>", function() vim.lsp.buf.signature_help() end)
 		end,
 	}, _config or {})
