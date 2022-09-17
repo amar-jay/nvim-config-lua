@@ -1,4 +1,3 @@
-
 local key = vim.keymap
 local M = {}
 
@@ -19,6 +18,11 @@ M.nnoremap = bind("n")
 M.vnoremap = bind("v")
 M.xnoremap = bind("x")
 M.inoremap = bind("i")
+
+-- Other keymaps
+key.set('n', '<leader>vim', ':tabedit ~/.config/nvim<Return>')
+key.set('n', '<leader>nvim', ':tabedit ~/.config/nvim<Return>')
+key.set('n', '<leader>tmux', ':tabedit ~/.config/tmux/<Return>')
 
 -- Keymaps for tabs
 key.set('n', 'te', ':tabedit ')
@@ -43,10 +47,10 @@ key.set('n', 'nn',
 vim.keymap.set('n', 'nr', function()
   builtin.live_grep()
 end)
-vim.keymap.set('n', '\\\\', function()
+vim.keymap.set('n', '<leader>tb', function()
   builtin.buffers()
 end)
-vim.keymap.set('n', '<leader>t', function()
+vim.keymap.set('n', '<leader>tg', function()
   builtin.help_tags()
 end)
 vim.keymap.set('n', '<leader>r', function()
@@ -86,7 +90,7 @@ M.ts_context = function(_setup)
 
 
 -- keymaps for lsp
-local function config(_config)
+local function lsp_keys(_config)
 	return vim.tbl_deep_extend("force", {
 		capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities()),
 		on_attach = function()
@@ -117,6 +121,6 @@ local function config(_config)
 	}, _config or {})
 end
 
-M.config = config
+M.lsp_keys = lsp_keys
 M.ts_context = M.ts_context
 return M

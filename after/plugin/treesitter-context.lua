@@ -42,4 +42,4 @@ end
 
 -- Initialize keymaps for enabling and disabling treesitter-context
 config(ContextSetup)
-ContextSetup(false)
+ContextSetup(true)

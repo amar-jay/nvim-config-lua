@@ -1,7 +1,7 @@
 local lspstatus, lsp = pcall(require, "lspconfig")
 local ruststatus, rusttools = pcall(require, "rust-tools")
 local Keymaps = require("amarjay.keymap")
-local config = Keymaps.config
+local config = Keymaps.lsp_keys
 
 if (not lspstatus) then
   print("Lspconfig import error!!")
@@ -36,7 +36,6 @@ lsp.svelte.setup(config())
 -- Rust Lsp Config
 --
 -- changed config to rust-tools
---[[
 require("lspconfig").rust_analyzer.setup(config({
 	cmd = { "rustup", "run", "nightly", "rust-analyzer" },
     settings = {
@@ -47,7 +46,7 @@ require("lspconfig").rust_analyzer.setup(config({
         },
     }
 }))
-  --]]
+
 local opts = {
   tools = {
         runnables = {

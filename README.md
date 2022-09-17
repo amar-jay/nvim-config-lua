@@ -25,3 +25,7 @@ For effieciency and faster build time. No package manager is used.
     - [x] Svelte
 - [x] Telescope 
 - [ ] Write script for setup
+- [ ] Set up linting
+ - [ ] Prettier
+ - [ ] golang
+ - [ ] rust

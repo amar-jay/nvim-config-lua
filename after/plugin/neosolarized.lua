@@ -1,14 +1,17 @@
 local status, n = pcall(require, "neosolarized")
+local buddy_status, cb = pcall(require, 'colorbuddy.init')
 if (not status) then
   print("Neosolarized not installed")
   return end
 
+if (not buddy_status) then
+  print("Buddy status not installed")
+  return end
 
 n.setup({
   comment_italics = true,
 })
 
-local cb = require('colorbuddy.init')
 local Color = cb.Color
 local colors = cb.colors
 local Group = cb.Group

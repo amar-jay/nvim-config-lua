@@ -36,7 +36,7 @@ vim.opt.winblend = 0
 vim.opt.wildoptions = 'pum'
 vim.opt.pumblend = 5
 vim.opt.background = 'dark'
-vim.opt.signcolumn = "yes"
+--vim.opt.signcolumn = "yes"
 --vim.opt.isfname:append("@-@")
 
 -- Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
