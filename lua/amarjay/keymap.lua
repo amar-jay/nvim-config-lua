@@ -94,6 +94,7 @@ local function lsp_keys(_config)
 	return vim.tbl_deep_extend("force", {
 		capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities()),
 		on_attach = function()
+                M.inoremap("<C-h>", function() vim.lsp.buf.signature_help() end)
 		M.nnoremap("gd", function() vim.lsp.buf.definition() end)
 		M.nnoremap("K", function() vim.lsp.buf.hover() end)
 		M.nnoremap("<leader>ws", function() vim.lsp.buf.workspace_symbol() end)
@@ -104,19 +105,20 @@ local function lsp_keys(_config)
 		M.nnoremap("<leader>ca", function() vim.lsp.buf.code_action() end)
 		M.nnoremap("<leader>rr", function() vim.lsp.buf.references() end)
 		M.nnoremap("<leader>p", function() vim.lsp.buf.formatting() end)
-                       M.nnoremap("<leader>rn", function() vim.lsp.buf.rename() end)
-                       M.nnoremap("<leader>co", function() vim.lsp.buf.code_action({
-                              filter = function(code_action)
-                                  if not code_action or not code_action.data then
-                                      return false
-                                  end
+                M.nnoremap('gr', function() vim.lsp.buf.references() end)
+                M.nnoremap("<leader>rn", function() vim.lsp.buf.rename() end)
+                M.nnoremap("<leader>co", function() vim.lsp.buf.code_action({
+                  filter = function(code_action)
+                      if not code_action or not code_action.data then
+                          return false
+                      end
 
-                                  local data = code_action.data.id
-                                  return string.sub(data, #data - 1, #data) == ":0"
-                              end,
-                              apply = true
-                          }) end)
-			M.inoremap("<C-h>", function() vim.lsp.buf.signature_help() end)
+                      local data = code_action.data.id
+                      return string.sub(data, #data - 1, #data) == ":0"
+                  end,
+                  apply = true
+              })
+      end)
 		end,
 	}, _config or {})
 end

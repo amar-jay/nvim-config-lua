@@ -1,0 +1,10 @@
+                    packer.nvim - finished in 3.750s
+ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ - Removed /home/manan/.local/share/nvim/site/pack/packer/start/komrade.nvim
+ ✗ Failed to install amar/komrade.nvim
+
+ Press 'q' to quit
+ Press '<CR>' to show more info
+ Press 'd' to show the diff
+ Press 'r' to revert an update
+ Press 'R' to retry failed operations

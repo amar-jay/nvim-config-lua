@@ -10,9 +10,8 @@ vim.cmd [[packadd packer.nvim]]
 packer.startup(function(use)
   use 'wbthomason/packer.nvim'
 
-  -- TJ Packages
   use {
-    'svrana/neosolarized.nvim',
+    "amar-jay/komrade.nvim",
     requires = { 'tjdevries/colorbuddy.nvim' }
   }
   use 'nvim-lua/plenary.nvim' -- Common utilities -- *

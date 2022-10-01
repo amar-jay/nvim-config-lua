@@ -94,6 +94,11 @@ _G.packer_plugins = {
     path = "/home/manan/.local/share/nvim/site/pack/packer/start/colorbuddy.nvim",
     url = "https://github.com/tjdevries/colorbuddy.nvim"
   },
+  ["komrade.nvim"] = {
+    loaded = true,
+    path = "/home/manan/.local/share/nvim/site/pack/packer/start/komrade.nvim",
+    url = "https://github.com/amar-jay/komrade.nvim"
+  },
   ["lsp-colors.nvim"] = {
     loaded = true,
     path = "/home/manan/.local/share/nvim/site/pack/packer/start/lsp-colors.nvim",
@@ -108,11 +113,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/manan/.local/share/nvim/site/pack/packer/start/lspsaga.nvim",
     url = "https://github.com/glepnir/lspsaga.nvim"
-  },
-  ["neosolarized.nvim"] = {
-    loaded = true,
-    path = "/home/manan/.local/share/nvim/site/pack/packer/start/neosolarized.nvim",
-    url = "https://github.com/svrana/neosolarized.nvim"
   },
   ["null-ls.nvim"] = {
     loaded = true,

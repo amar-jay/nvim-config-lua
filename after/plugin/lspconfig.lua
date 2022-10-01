@@ -28,25 +28,24 @@ lsp.gopls.setup(config({
 
 -- Fix config err
 lsp.tsserver.setup(config({}))
---lsp.tsserver.setup({})
 lsp.tailwindcss.setup({})
-
 lsp.svelte.setup(config())
 
 -- Rust Lsp Config
 --
 -- changed config to rust-tools
 require("lspconfig").rust_analyzer.setup(config({
-	cmd = { "rustup", "run", "nightly", "rust-analyzer" },
-    settings = {
+	cmd = { "rustup", "run", "stable", "rust-analyzer" },
+--[[ settings = {
         rust = {
             unstable_features = false,
             build_on_save = false,
             all_features = true,
         },
     }
+  --]]
 }))
-
+--[[
 local opts = {
   tools = {
         runnables = {
@@ -66,20 +65,25 @@ local opts = {
         -- on_attach is a callback called when the language server attachs to the buffer
         -- on_attach = on_attach,
         settings = {
-            -- to enable rust-analyzer settings visit:
-            -- https://github.com/rust-analyzer/rust-analyzer/blob/master/docs/user/generated_config.adoc
+       on_attach = function(_, bufnr)
+                -- Hover actions
+                vim.keymap.set("n", "K", rt.hover_actions.hover_actions, { buffer = bufnr })
+                -- Code action groups
+                vim.keymap.set("n", "<Leader>ca", rt.code_action_group.code_action_group, { buffer = bufnr })
+                require 'illuminate'.on_attach(client)
+            end,
             ["rust-analyzer"] = {
-                -- enable clippy on save
                 checkOnSave = {
                     command = "clippy"
                 },
-            }
-        }
+       }}
     },
 
 } 
 rusttools.setup(config(opts))
+--]]
 
+--[[
 local opts = {
 	-- whether to highlight the currently hovered symbol
 	-- disable if your cpu usage is higher than you want it
@@ -91,14 +95,11 @@ local opts = {
 	-- default: true
 	show_guides = true,
 }
-
 -- Ought to fix import error
---[[
 local status, so = pcall("symbols-outline")
 
 if (not status) then
   print("Symbols-outlined import error!!")
   return end
 so.setup(opts)
-]]--
-
+--]]
