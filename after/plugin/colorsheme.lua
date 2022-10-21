@@ -10,6 +10,9 @@ if (not buddy_status) then
 
 n.setup({
   comment_italics = true,
+  default_theme = "dark",
+  todo_bold = false
+
 })
 --n.setup({})
 
@@ -20,5 +23,3 @@ Color.new('white', '#cccccc')
 Color.new('magenta', '#f000f0')
 Color.new('gray', '#333333')
 Group.new('Visual', cb.colors.white, cb.colors.gray, cb.styles.none)
--- Why not working??
--- Group.new('TODO', cb.colors.magenta, cb.colors.none, cb.styles.none)

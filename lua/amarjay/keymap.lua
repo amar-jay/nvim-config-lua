@@ -29,13 +29,25 @@ key.set('n', 'te', ':tabedit ')
 key.set('n', 'te<Return>', ':tabnew<Return> ')
 key.set('n', '<S-Tab>', ':tabprev<Return>')
 key.set('n', '<Tab>', ':tabnext<Return>')
-key.set('n', 'vs', ':vsplit' )
-key.set('n', 'ss', ':split' )
+
+-- Keymaps for split
+key.set('n', '<leader>|', ':vsplit' )
+key.set('n', '<leader>_', ':split' )
+key.set('n', '<leader><Space>', '<C-W>w')
+key.set('n', '<leader><up>', '<C-w>k' )
+key.set('n', '<leader><down>', '<C-w>j' )
+key.set('n', '<leader><left>', '<C-w>h' )
+key.set('n', '<leader><right>', '<C-w>l' )
+key.set('n', '<leader><S-up>', '<C-w>+' )
+key.set('n', '<leader><S-down>', '<C-w>-' )
+key.set('n', '<leader><S-left>', '<C-w><' )
+key.set('n', '<leader><S-right>', '<C-w>>' )
 
 -- Keymaps for Treesitter
 local function treesitter()
 
 local builtin = require("telescope.builtin")
+
 local telescope = require("telescope")
 key.set('n', 'nn',
   function()
@@ -44,18 +56,23 @@ key.set('n', 'nn',
       hidden = true
     })
   end)
+
 vim.keymap.set('n', 'nr', function()
   builtin.live_grep()
 end)
+
 vim.keymap.set('n', '<leader>tb', function()
   builtin.buffers()
 end)
+
 vim.keymap.set('n', '<leader>tg', function()
   builtin.help_tags()
 end)
+
 vim.keymap.set('n', '<leader>r', function()
   builtin.resume()
 end)
+
 vim.keymap.set('n', '<leader>h', function()
   builtin.diagnostics()
 end)
@@ -65,7 +82,6 @@ local function telescope_buffer_dir()
   return vim.fn.expand('%:p:h')
 end
 
-
 vim.keymap.set("n", "<leader>b", function()
   telescope.extensions.file_browser.file_browser({
     path = "%:p:h",
@@ -74,6 +90,18 @@ vim.keymap.set("n", "<leader>b", function()
     hidden = true,
     grouped = true,
     previewer = false,
+    initial_mode = "normal",
+    layout_config = { height = 40 }
+  })
+  end)
+
+vim.keymap.set("n", "<leader>B", function()
+  telescope.extensions.file_browser.file_browser({
+    path = "%:p:h",
+    cwd = telescope_buffer_dir(),
+    respect_gitignore = false,
+    hidden = true,
+    grouped = true,
     initial_mode = "normal",
     layout_config = { height = 40 }
   })
