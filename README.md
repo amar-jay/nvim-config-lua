@@ -4,6 +4,11 @@
 
 ![screenshot](./screenshot.jpg)
 
+
+## TO USE
+
+- Install packer [from this repo](https://github.com/wbthomason/packer.nvim)
+
 ## Hot Keys
 
 To know my hot keys. All has been packaged in the
