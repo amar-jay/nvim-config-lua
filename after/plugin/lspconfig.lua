@@ -28,6 +28,7 @@ lsp.gopls.setup(config({
 
 -- Fix config err
 lsp.tsserver.setup(config({}))
+lsp.ccls.setup(config({}))
 lsp.tailwindcss.setup({})
 lsp.svelte.setup(config())
 
