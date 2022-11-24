@@ -15,6 +15,7 @@ ts.setup {
     enable = true,
     disable = {},
   },
+  --[[
   ensure_installed = {
     "tsx",
     "toml",
@@ -27,10 +28,11 @@ ts.setup {
     "rust",
     "astro"
   },
+  ]]--
   autotag = {
     enable = true,
   },
-   -- ensure_installed = "all",
+  ensure_installed = "all",
    -- sync_install = false,
 
   }

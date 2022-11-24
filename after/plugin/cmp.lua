@@ -1,15 +1,16 @@
 local status, cmp = pcall(require, "cmp")
-if (not status) then 
+if (not status) then
   print("Cmp not installed")
-  return end
+  return
+end
 -- local lspkind = require 'lspkind'
 
 local source_map = {
-    nvim_lsp = "[LSP]",
-    nvim_lua = "[LUA]",
-    buffer = "[BUFFER]",
-    cmp_tabnine = "[TN]", -- not implemented 
-    path = "[PATH]",
+  nvim_lsp = "[LSP]",
+  nvim_lua = "[LUA]",
+  buffer = "[BUFFER]",
+  cmp_tabnine = "[TN]", -- not implemented
+  path = "[PATH]",
 }
 
 cmp.setup({
@@ -35,20 +36,20 @@ cmp.setup({
     { name = 'buffer' },
     -- is it really neccessary??
     -- { name = "cmp_tabnine" },
-	
     -- TODO: Install and configure snippet plugin
     -- { name = "ultisnip" },
   }),
 
   formatting = {
     format = function(entry, vim_item)
-		    vim_item.kind = source_map[entry.source.name]
-		    return vim_item
-	    end
-	   -- lspkind.cmp_format({ with_text = false, maxwidth = 50 })
+      vim_item.kind = source_map[entry.source.name]
+      return vim_item
+    end
+    -- lspkind.cmp_format({ with_text = false, maxwidth = 50 })
   }
 })
 
+---@diagnostic disable-next-line: undefined-global
 vim.cmd [[
   set completeopt=menuone,noinsert,noselect
   highlight! default link CmpItemKind CmpItemMenuDefault

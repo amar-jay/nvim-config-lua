@@ -1,7 +1,8 @@
 local status, telescope = pcall(require, "telescope")
 if (not status) then
   print("Telescpoe import Error")
-return end
+  return
+end
 
 local actions = require('telescope.actions')
 local fb_actions = require "telescope".extensions.file_browser.actions
@@ -39,4 +40,3 @@ telescope.setup {
 }
 
 telescope.load_extension("file_browser")
-
