@@ -1,6 +1,6 @@
 local status, telescope = pcall(require, "telescope")
 if (not status) then
-  print("Telescpoe import Error")
+  error("Telescope module import error", 2)
   return
 end
 
@@ -8,8 +8,13 @@ local actions = require('telescope.actions')
 local fb_actions = require "telescope".extensions.file_browser.actions
 
 telescope.setup {
+  pickers = {
+      theme = "dropdown",
+      find_files = {
+	disable_devicons = true
+      },
+  },
   defaults = {
-    devicons = false,
     mappings = {
       n = {
         ["q"] = actions.close
@@ -18,6 +23,9 @@ telescope.setup {
   },
   extensions = {
     file_browser = {
+      find_files = {
+	disable_devicons = true
+      },
       theme = "dropdown",
       -- disables netrw and use telescope-file-browser in its place
       hijack_netrw = true,

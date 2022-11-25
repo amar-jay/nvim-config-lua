@@ -1,11 +1,16 @@
 local Keymaps = require("amarjay.keymap")
+local ctx_err, ctx = pcall(require, "treesitter-context")
 
 
+if (not ctx_err) then
+  error("Telescope module import error", 2)
+
+return end
 local config = Keymaps.ts_context
 
 
 function ContextSetup(show_all_context)
-    require("treesitter-context").setup({
+    ctx.setup({
         enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
         throttle = true, -- Throttles plugin updates (may improve performance)
         max_lines = 0, -- How many lines the window should span. Values <= 0 mean no limit.

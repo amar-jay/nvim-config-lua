@@ -1,7 +1,7 @@
 local status, colors = pcall(require, "lsp-colors")
 
 if (not status) then
-  print("LSP colors import error!!")
+  error("LSP colors import error!!", 2)
   return end
 
 colors.setup {

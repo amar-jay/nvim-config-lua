@@ -1,7 +1,7 @@
 local status, ts = pcall(require, "nvim-treesitter.configs")
 
 if (not status) then
-  print("Treesitter import error!!")
+  error("Treesitter import error!!", 2)
   return
 end
 
@@ -15,24 +15,32 @@ ts.setup {
     enable = true,
     disable = {},
   },
-  --[[
   ensure_installed = {
+    "astro",
+    "css",
+    "go",
+    "graphql",
+    "gomod",
+    "html",
+    "json",
+    "json5",
+    "lua",
+    "markdown",
+    "make",
+    "nix",
+    "python",
+    "regex",
+    "rust",
     "tsx",
     "toml",
-    "json",
     "yaml",
-    "css",
-    "html",
-    "lua",
-    "go",
-    "rust",
-    "astro"
+    "vim"
   },
-  ]]--
   autotag = {
     enable = true,
   },
-  ensure_installed = "all",
+  auto_installed = true,
+  -- ensure_installed = "all",
    -- sync_install = false,
 
   }

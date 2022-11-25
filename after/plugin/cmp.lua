@@ -1,6 +1,6 @@
 local status, cmp = pcall(require, "cmp")
 if (not status) then
-  print("Cmp not installed")
+    error("Cmp not installed", 1)
   return
 end
 -- local lspkind = require 'lspkind'

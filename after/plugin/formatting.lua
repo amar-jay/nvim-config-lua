@@ -1,3 +1,4 @@
+--[[
 local status, prettier = pcall(require, "prettier")
 
 if (not status) then
@@ -20,5 +21,4 @@ prettier.setup {
     "less"
   }
 }
-
-
+--]]

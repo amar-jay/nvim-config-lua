@@ -1,6 +1,6 @@
 local status, colorizer = pcall(require, "colorizer")
 if (not status) then
-  print("Colorizer import error")
+  error("Colorizer import error", 1)
   return end
 
 
