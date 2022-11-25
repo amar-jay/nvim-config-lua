@@ -1,13 +1,11 @@
 # Lua Neovim Config
 
-- My Neovim Config in lua
-
-![screenshot](./screenshot.jpg)
-
+A concise Neovim config in Lua
 
 ## TO USE
 
 - Install packer [from this repo](https://github.com/wbthomason/packer.nvim)
+- Install [lsp servers](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#tsserver) 
 
 ## Hot Keys
 
@@ -28,9 +26,12 @@ For effieciency and faster build time. No package manager is used.
     - [x] Js/Ts
     - [x] JSX/React
     - [x] Svelte
+    - [x] Astro
+    - [x] Lua
+    - [x] Grammarly
 - [x] Telescope 
 - [ ] Write script for setup
-- [ ] Set up linting
- - [ ] Prettier
- - [ ] golang
- - [ ] rust
+- [x] Set up linting
+ - [x] Prettier
+ - [x] golang
+ - [x] rust
