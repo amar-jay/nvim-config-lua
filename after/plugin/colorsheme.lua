@@ -22,4 +22,5 @@ local Group = cb.Group
 
 Color.new('white', '#cccccc')
 Color.new('gray', '#333333')
+--Color.new('red', '#333333')
 Group.new('Visual', cb.colors.white, cb.colors.gray, cb.styles.none)

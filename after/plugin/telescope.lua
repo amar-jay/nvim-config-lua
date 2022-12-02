@@ -1,4 +1,12 @@
 local status, telescope = pcall(require, "telescope")
+local t_b_status, b = pcall(require, "telescope.builtin")
+local key = vim.keymap;
+
+if (not t_b_status) then
+  error("Telescope builtin import error!!", 2)
+  return
+end
+
 if (not status) then
   error("Telescope module import error", 2)
   return
@@ -47,4 +55,65 @@ telescope.setup {
   },
 }
 
+-- Setting treesitter keymaps
+local function telescope_keys(builtin)
+  key.set('n', 'nn',
+    function()
+      builtin.find_files({
+	no_ignore = false,
+	hidden = true
+      })
+    end)
+
+  key.set('n', 'nr', function()
+    builtin.live_grep()
+  end)
+
+  key.set('n', '<leader>tb', function()
+    builtin.buffers()
+  end)
+
+  key.set('n', '<leader>tg', function()
+    builtin.help_tags()
+  end)
+
+  key.set('n', '<leader>r', function()
+    builtin.resume()
+  end)
+
+  key.set('n', '<leader>h', function()
+    builtin.diagnostics()
+  end)
+
+  local function telescope_buffer_dir()
+    return vim.fn.expand('%:p:h')
+  end
+
+  key.set("n", "<leader>b", function()
+    telescope.extensions.file_browser.file_browser({
+      path = "%:p:h",
+      cwd = telescope_buffer_dir(),
+      respect_gitignore = false,
+      hidden = true,
+      grouped = true,
+      previewer = false,
+      initial_mode = "normal",
+      layout_config = { height = 40 }
+    })
+    end)
+
+  key.set("n", "<leader>B", function()
+    telescope.extensions.file_browser.file_browser({
+      path = "%:p:h",
+      cwd = telescope_buffer_dir(),
+      respect_gitignore = false,
+      hidden = true,
+      grouped = true,
+      initial_mode = "normal",
+      layout_config = { height = 40 }
+    })
+  end)
+end
+
+telescope_keys(b)
 telescope.load_extension("file_browser")

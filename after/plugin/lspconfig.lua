@@ -1,7 +1,38 @@
 local lspstatus, lsp = pcall(require, "lspconfig")
-local Keymaps = require("amarjay.keymap")
-local config = Keymaps.lsp_keys
+local M = require("amarjay.keymap")
 
+local function config(_config)
+	return vim.tbl_deep_extend("force", {
+		capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
+		on_attach = function()
+                M.inoremap("<C-h>", function() vim.lsp.buf.signature_help() end)
+		M.nnoremap("gd", function() vim.lsp.buf.definition() end)
+		M.nnoremap("K", function() vim.lsp.buf.hover() end)
+		M.nnoremap("<leader>ws", function() vim.lsp.buf.workspace_symbol() end)
+		M.nnoremap("<leader>d", function() vim.lsp.buf.type_definition() end)
+		M.nnoremap("<leader>f", function() vim.diagnostic.open_float() end)
+		M.nnoremap("[d", function() vim.diagnostic.goto_next() end)
+		M.nnoremap("]d", function() vim.diagnostic.goto_prev() end)
+		M.nnoremap("<leader>ca", function() vim.lsp.buf.code_action() end)
+		M.nnoremap("<leader>rr", function() vim.lsp.buf.references() end)
+		M.nnoremap("<leader>p", function() vim.lsp.buf.formatting() end)
+                M.nnoremap('gr', function() vim.lsp.buf.references() end)
+                M.nnoremap("<leader>rn", function() vim.lsp.buf.rename() end)
+                M.nnoremap("<leader>co", function() vim.lsp.buf.code_action({
+                  filter = function(code_action)
+                      if not code_action or not code_action.data then
+                          return false
+                      end
+
+                      local data = code_action.data.id
+                      return string.sub(data, #data - 1, #data) == ":0"
+                  end,
+                  apply = true
+              })
+      end)
+		end,
+	}, _config or {})
+end
 if (not lspstatus) then
   print("Lspconfig import error!!")
   return
@@ -28,16 +59,15 @@ lsp.tailwindcss.setup(config({
   filetypes =  { "astro", "astro-markdown", "html", "mdx", "css", "javascript", "javascriptreact", "typescript", "typescriptreact", "svelte" }
 }))
 lsp.svelte.setup(config())
---[[
 lsp.grammarly.setup(config({
-  cmd = {"grammarly-languageserver", "--stdio"},
-  filetypes = {"markdown"},
+  -- cmd = {"grammarly-languageserver", "--stdio"},
+  filetypes = {"html","markdown", "text", "txt"},
   init_options = {
-    clientId = "<insert client id here>"
+    clientId = "client_BaDkMgx4X19X9UxxYRCXZo"
   },
-  single_file_support = true
+--  single_file_support = true
 }))
---]]
+
 lsp.sumneko_lua.setup(config({
     settings = {
     Lua = {
@@ -88,3 +118,4 @@ if (not status) then
   return end
 so.setup(opts)
 --]]
+--
