@@ -55,9 +55,11 @@ lsp.gopls.setup(config({
 -- Fix config err
 lsp.tsserver.setup(config({}))
 lsp.ccls.setup(config({}))
+--[[
 lsp.tailwindcss.setup(config({
   filetypes =  { "astro", "astro-markdown", "html", "mdx", "css", "javascript", "javascriptreact", "typescript", "typescriptreact", "svelte" }
 }))
+--]]
 lsp.svelte.setup(config())
 lsp.grammarly.setup(config({
   -- cmd = {"grammarly-languageserver", "--stdio"},
