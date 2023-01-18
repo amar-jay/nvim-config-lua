@@ -38,8 +38,17 @@ if (not lspstatus) then
   return
 end
 
+--Enable (broadcasting) snippet capability for completion
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+lsp.jsonls.setup(config( {
+  capabilities = capabilities,
+}))
+
 lsp.pyright.setup(config())
 
+lsp.golangci_lint_ls.setup(config())
 lsp.gopls.setup(config({
   cmd = { "gopls", "serve" },
   settings = {
@@ -60,6 +69,11 @@ lsp.tailwindcss.setup(config({
   filetypes =  { "astro", "astro-markdown", "html", "mdx", "css", "javascript", "javascriptreact", "typescript", "typescriptreact", "svelte" }
 }))
 --]]
+lsp.dartls.setup(config({
+  cmd = { "dart", "language-server", "--protocol=lsp" },
+  filetypes = { "dart" }
+
+}))
 lsp.svelte.setup(config())
 lsp.grammarly.setup(config({
   -- cmd = {"grammarly-languageserver", "--stdio"},

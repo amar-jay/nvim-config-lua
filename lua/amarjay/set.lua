@@ -49,4 +49,4 @@ vim.g.mapleader = " " -- Set Leader
 -- Do not pass emssage to |ins-completion-menu|
 vim.opt.shortmess:append("c")
 
-vim.opt.clipboard = 'unnamed'
+-- vim.opt.clipboard = 'unnamed'

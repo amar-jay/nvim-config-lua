@@ -74,11 +74,6 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
-  LuaSnip = {
-    loaded = true,
-    path = "/home/manan/.local/share/nvim/site/pack/packer/start/LuaSnip",
-    url = "https://github.com/L3MON4D3/LuaSnip"
-  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/home/manan/.local/share/nvim/site/pack/packer/start/cmp-buffer",
@@ -118,6 +113,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/manan/.local/share/nvim/site/pack/packer/start/lspsaga.nvim",
     url = "https://github.com/glepnir/lspsaga.nvim"
+  },
+  luasnip = {
+    loaded = true,
+    path = "/home/manan/.local/share/nvim/site/pack/packer/start/luasnip",
+    url = "https://github.com/l3mon4d3/luasnip"
   },
   ["nvim-autopairs"] = {
     loaded = true,
@@ -168,6 +168,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/manan/.local/share/nvim/site/pack/packer/start/popup.nvim",
     url = "https://github.com/nvim-lua/popup.nvim"
+  },
+  ["spoon.nvim"] = {
+    loaded = true,
+    path = "/home/manan/.local/share/nvim/site/pack/packer/start/spoon.nvim",
+    url = "https://github.com/utilyre/spoon.nvim"
   },
   ["telescope-file-browser.nvim"] = {
     loaded = true,

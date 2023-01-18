@@ -43,7 +43,9 @@ key.set('n', '<leader><S-down>', '<C-w>-' )
 key.set('n', '<leader><S-left>', '<C-w><' )
 key.set('n', '<leader><S-right>', '<C-w>>' )
 
--- Keymaps for Treesitter
+-- Keymaps for Git 
+key.set("n", "<leader>gs", vim.cmd.Git);
+
 
 
 -- keymaps for treesitter context 
