@@ -1,12 +1,4 @@
 let g:netrw_dirhistmax  =10
 let g:netrw_dirhistcnt =2
-let g:netrw_dirhist_2='/home/manan/notes'
-let g:netrw_dirhist_1='/home/manan/.config/yarn/global'
-let g:netrw_dirhist_0='/'
-let g:netrw_dirhist_9='/home'
-let g:netrw_dirhist_8='/home/manan'
-let g:netrw_dirhist_7='/home/manan/.config'
-let g:netrw_dirhist_6='/home/manan/.config/nvim'
-let g:netrw_dirhist_5='/home/manan/.config/nvim/lua'
-let g:netrw_dirhist_4='/home/manan/code'
-let g:netrw_dirhist_3='/home/manan/code/electron-builder'
+let g:netrw_dirhist_2='/home/manan'
+let g:netrw_dirhist_1='/home/manan/.config/nvim'

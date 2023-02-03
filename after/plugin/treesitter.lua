@@ -27,7 +27,6 @@ ts.setup {
     "lua",
     "markdown",
     "make",
-    "nix",
     "python",
     "regex",
     "rust",

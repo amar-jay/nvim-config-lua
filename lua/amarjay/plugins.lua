@@ -56,3 +56,4 @@ packer.startup(function(use)
 --  use 'dinhhuy258/git.nvim' -- For git blame & browse
 end)
 
+vim.cmd [[PackerInstall]]
