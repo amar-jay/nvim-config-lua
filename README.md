@@ -1,6 +1,6 @@
 # Lua Neovim Config
 
-A concise Neovim config in Lua
+A concise Neovim config in Lua. As well as configuration for multiple configs.
 
 ## TO USE
 
@@ -10,10 +10,14 @@ A concise Neovim config in Lua
 ## Hot Keys
 
 To know my hot keys. All has been packaged in the
-[lua/amarjay/keymap.lua](./lua/amarjay/keymap.lua). 
+[lua/common/keymap.lua](./lua/common/keymap.lua). 
 Also all lsp language servers share the same hotkeys. 
 Such as `gd` - to go to definition `K` - For hover. All these are in the keymap file
 For effieciency and faster build time. No package manager is used.
+
+# TLDR;
+
+Currently there are two options; to change from `amarjay` to `kickstart`, do so in the [init.lua](./init.lua) and [after/plugin](./after/plugin/init.lua) files.
 
 ## TODO
 
