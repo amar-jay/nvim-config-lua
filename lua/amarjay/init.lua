@@ -1,3 +1,3 @@
 require("amarjay.set")
-require("amarjay.keymap")
+require("common.keymap")
 require("amarjay.plugins")

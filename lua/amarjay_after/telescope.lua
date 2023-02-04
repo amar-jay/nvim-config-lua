@@ -17,10 +17,10 @@ local fb_actions = require "telescope".extensions.file_browser.actions
 
 telescope.setup {
   pickers = {
-      theme = "dropdown",
-      find_files = {
-	disable_devicons = true
-      },
+    theme = "dropdown",
+    find_files = {
+      disable_devicons = true
+    },
   },
   defaults = {
     mappings = {
@@ -32,7 +32,7 @@ telescope.setup {
   extensions = {
     file_browser = {
       find_files = {
-	disable_devicons = true
+        disable_devicons = true
       },
       theme = "dropdown",
       -- disables netrw and use telescope-file-browser in its place
@@ -55,33 +55,34 @@ telescope.setup {
   },
 }
 
+local keymap = require("common.keymap").telescope
 -- Setting treesitter keymaps
 local function telescope_keys(builtin)
-  key.set('n', 'nn',
+  key.set('n', keymap.find_files,
     function()
       builtin.find_files({
-	no_ignore = false,
-	hidden = true
+        no_ignore = false,
+        hidden = true
       })
     end)
 
-  key.set('n', 'nr', function()
+  key.set('n', keymap.live_grep, function()
     builtin.live_grep()
   end)
 
-  key.set('n', '<leader>tb', function()
+  key.set('n', keymap.buffers, function()
     builtin.buffers()
   end)
 
-  key.set('n', '<leader>tg', function()
+  key.set('n', keymap.help_tags, function()
     builtin.help_tags()
   end)
 
-  key.set('n', '<leader>r', function()
+  key.set('n', keymap.resume, function()
     builtin.resume()
   end)
 
-  key.set('n', '<leader>h', function()
+  key.set('n', keymap.diagnostics, function()
     builtin.diagnostics()
   end)
 
@@ -89,7 +90,7 @@ local function telescope_keys(builtin)
     return vim.fn.expand('%:p:h')
   end
 
-  key.set("n", "<leader>b", function()
+  key.set("n", keymap.file_browser_less, function()
     telescope.extensions.file_browser.file_browser({
       path = "%:p:h",
       cwd = telescope_buffer_dir(),
@@ -100,9 +101,9 @@ local function telescope_keys(builtin)
       initial_mode = "normal",
       layout_config = { height = 40 }
     })
-    end)
+  end)
 
-  key.set("n", "<leader>B", function()
+  key.set("n", keymap.file_browser, function()
     telescope.extensions.file_browser.file_browser({
       path = "%:p:h",
       cwd = telescope_buffer_dir(),

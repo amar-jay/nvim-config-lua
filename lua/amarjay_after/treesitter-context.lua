@@ -1,11 +1,12 @@
-local Keymaps = require("amarjay.keymap")
+local Keymaps = require("common.keymap")
 local ctx_err, ctx = pcall(require, "treesitter-context")
 
 
 if (not ctx_err) then
-  error("Telescope module import error", 2)
+    error("Telescope module import error", 2)
 
-return end
+    return
+end
 local config = Keymaps.ts_context
 
 
@@ -43,7 +44,6 @@ function ContextSetup(show_all_context)
         },
     })
 end
-
 
 -- Initialize keymaps for enabling and disabling treesitter-context
 config(ContextSetup)
