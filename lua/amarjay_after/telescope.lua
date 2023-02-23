@@ -97,6 +97,7 @@ local function telescope_keys(builtin)
       respect_gitignore = false,
       hidden = true,
       grouped = true,
+      dir_icon = false,
       previewer = false,
       initial_mode = "normal",
       layout_config = { height = 40 }
@@ -109,6 +110,7 @@ local function telescope_keys(builtin)
       cwd = telescope_buffer_dir(),
       respect_gitignore = false,
       hidden = true,
+      dir_icon = "📁",
       grouped = true,
       initial_mode = "normal",
       layout_config = { height = 40 }

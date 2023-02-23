@@ -56,9 +56,9 @@ end
 M.telescope = {
   buffers = "<leader>v",
   diagnostics = "<leader>h",
-  file_browser = "<leader>b", -- has previewer
-  file_browser_less = "<leader>B", -- no previewer
-  find_files = "<leader>b", -- more or less similar to browse_files
+  file_browser = "<leader>B", -- has previewer
+  file_browser_less = "<leader>b", -- no previewer
+  find_files = "<leader>ff", -- more or less similar to browse_files
   fuzzy_find = "<leader>/", -- what is the dffce b/n find_files and fuzzy_find?
   grep_string = "<leader>gs",
   help_tags = "<leader>gt",

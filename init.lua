@@ -1,2 +1,2 @@
---require("amarjay")
-require("kickstart")
+require("amarjay")
+--require("kickstart")
