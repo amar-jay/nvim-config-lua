@@ -110,7 +110,8 @@ local function telescope_keys(builtin)
       cwd = telescope_buffer_dir(),
       respect_gitignore = false,
       hidden = true,
-      dir_icon = "📁",
+      dir_icon = "D",
+      git_status = false,
       grouped = true,
       initial_mode = "normal",
       layout_config = { height = 40 }
