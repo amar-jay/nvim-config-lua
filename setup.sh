@@ -23,4 +23,4 @@ mv $HOME/.config/.tmp/* $HOME/.config/nvim/ &&
 mv $HOME/.config/.tmp/.* $HOME/.config/nvim/ &&
 rmdir $HOME/.tmp 
 
-nvim --version
+nvim
