@@ -15,10 +15,11 @@ echo "Packer install"
 git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 echo "cloning amar-jay/nvim-config-lua"
 # This contains tmux and neovim config files
-mkdir $HOME/.config &&
-git clone https://github.com/amar-jay/nvim-config-lua $HOME/.config/tmp
-mv $HOME/.config/tmp/* $HOME/.config/nvim/ &&
-mv $HOME/.config/tmp/.* $HOME/.config/nvim/ &&
-rmdir tmp 
+mkdir -p $HOME/.config;
+
+git clone https://github.com/amar-jay/nvim-config-lua $HOME/.config/.tmp
+mv $HOME/.config/.tmp/* $HOME/.config/nvim/ &&
+mv $HOME/.config/.tmp/.* $HOME/.config/nvim/ &&
+rmdir $HOME/.tmp 
 
 nvim --version
