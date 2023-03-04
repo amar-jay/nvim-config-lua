@@ -16,6 +16,7 @@ git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvi
 echo "cloning amar-jay/nvim-config-lua"
 # This contains tmux and neovim config files
 mkdir -p $HOME/.config;
+mkdir -p $HOME/.config/nvim;
 
 git clone https://github.com/amar-jay/nvim-config-lua $HOME/.config/.tmp
 mv $HOME/.config/.tmp/* $HOME/.config/nvim/ &&
