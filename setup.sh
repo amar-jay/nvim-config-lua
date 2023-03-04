@@ -23,4 +23,6 @@ mv $HOME/.config/.tmp/* $HOME/.config/nvim/ &&
 mv $HOME/.config/.tmp/.* $HOME/.config/nvim/ &&
 rmdir $HOME/.tmp 
 
+git clone https://github.com/github/copilot.vim.git $HOME/AppData/Local/nvim/pack/github/start/copilot.vim
+
 nvim
