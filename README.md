@@ -2,6 +2,20 @@
 
 A concise Neovim config in Lua. As well as configuration for multiple configs.
 
+---
+
+<div align="center">
+    <p><strong>Deprecated.</strong> Moved to <a href="https://github.com/amar-jay/my-lazyvim-conf">this config</a> based on LazyVim & Mason. Hassle-free, feature-rich, no direct LSP server installs needed. <a href="https://github.com/amar-jay/my-lazyvim-conf">Try it</a>!</p>
+</div>
+
+---
+
+![screenshot](./screenshot.jpg)
+
+
+
+
+
 ## TO USE
 
 - Install packer [from this repo](https://github.com/wbthomason/packer.nvim)
